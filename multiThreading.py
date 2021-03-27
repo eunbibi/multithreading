@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Mar 27 12:39:38 2021
-
 @author: anna_eunbi
 """
 
@@ -9,33 +8,33 @@ Created on Sat Mar 27 12:39:38 2021
 
 # importing the threading module
 import threading
-  
-def print_cube(num):
-    """
-    function to print cube of given num
-    """
-    print("Cube: {}".format(num * num * num))
-  
+
+    #function to print square of given num
 def print_square(num):
-    """
-    function to print square of given num
-    """
-    print("Square: {}".format(num * num))
+    print("2^2= {}".format(num * num))
+    
+    #function to print cube of given num
+def print_cube(num):
+    print("2^3= {}".format(num * num * num))
   
 if __name__ == "__main__":
     # creating thread
-    t1 = threading.Thread(target=print_square, args=(10,))
-    t2 = threading.Thread(target=print_cube, args=(10,))
+                          #target: the function to be executed by thread
+    t1 = threading.Thread(target=print_square, args=(2,))
+                                            #args: the arguments to be passed 
+                                            #      to the target function            
+    t2 = threading.Thread(target=print_cube, args=(2,))
   
-    # starting thread 1
+    # start, t1
     t1.start()
-    # starting thread 2
+    # start, t2
     t2.start()
   
-    # wait until thread 1 is completely executed
+    # wait for completing t1
     t1.join()
-    # wait until thread 2 is completely executed
+    # wait for completing t2
     t2.join()
   
-    # both threads completely executed
-    print("Done!")
+    # t1 and t2 are completely executed
+    print("t1 and t2 are executed")
+    
